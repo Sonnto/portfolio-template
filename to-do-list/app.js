@@ -8,7 +8,7 @@ const filterOption = document.querySelector(".filter-todo");
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
-filterOption.addEventListener("click", filterTodo);
+filterOption.addEventListener("change", filterTodo);
 
 //Functions
 
@@ -63,6 +63,7 @@ function deleteCheck(e) {
 function filterTodo(e) {
     const todos = todoList.childNodes;
     todos.forEach(function(todo){
+        console.log('test');
         switch(e.target.value){
             case "all":
                 todo.style.display = "flex";
@@ -89,7 +90,7 @@ function filterTodo(e) {
 function saveLocalTodos(todo){
     //CHECK -- HEY, do I already have things in there?
     let todos;
-    if(localStorage.getItem("todos") === null){
+    if(localStorage.getItem("todos") === undefined){
         todos = [];
     }else{
         todos = JSON.parse(localStorage.getItem("todos"));
@@ -101,7 +102,7 @@ function saveLocalTodos(todo){
 function getTodos(){
     //CHECK -- HEY, do I already have things in there?
     let todos;
-    if(localStorage.getItem("todos") === null){
+    if(localStorage.getItem("todos") === undefined){
         todos = [];
     }else{
         todos = JSON.parse(localStorage.getItem("todos"));

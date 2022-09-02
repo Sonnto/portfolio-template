@@ -1,2 +1,3 @@
 # portfolio-template
-This is my first repo.
+
+This is my first repo and project.
